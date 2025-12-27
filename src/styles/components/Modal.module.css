@@ -1,0 +1,313 @@
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Modal Content */
+.modalContent {
+  background: #0b1a33;
+  border: 1px solid rgba(244, 185, 66, 0.3);
+  border-radius: 12px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 68vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Header */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(244, 185, 66, 0.2);
+}
+
+.modalHeader h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.companySubtitle {
+  color: #f4b942;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0;
+  font-style: italic;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #f4b942;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Demo Form */
+.demoForm {
+  padding: 20px 20px 0 20px;
+  background: #ffffff;
+  border-radius: 0 0 12px 12px;
+}
+
+.formRow {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.formRow:first-child {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.formRow:nth-child(2) {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.messageRow {
+  margin-bottom: 16px;
+}
+
+.submitRow {
+  text-align: center;
+  margin-top: 12px;
+  padding-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 0;
+}
+
+.formGroup label {
+  display: block;
+  color: #0b1a33;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  color: #0b1a33;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  min-height: 40px;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #6c757d;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #f4b942;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(244, 185, 66, 0.1);
+}
+
+.formGroup select {
+  cursor: pointer;
+}
+
+.formGroup select option {
+  background: #ffffff;
+  color: #0b1a33;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 50px;
+  width: 100%;
+}
+
+/* Submit Button */
+.submitButton {
+  background: linear-gradient(135deg, #f4b942 0%, #ffd166 100%);
+  color: #0b1a33;
+  border: none;
+  padding: 12px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+  margin-top: 0;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(244, 185, 66, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+/* Modal Footer */
+.modalFooter {
+  padding: 12px 24px;
+  border-top: 1px solid rgba(244, 185, 66, 0.2);
+  text-align: right;
+}
+
+.modalFooter p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .modalContent {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 10px;
+  }
+
+  .modalContent {
+    max-width: 95vw;
+    max-height: 90vh;
+  }
+
+  .modalHeader {
+    padding: 20px 24px;
+  }
+
+  .modalHeader h2 {
+    font-size: 1.3rem;
+  }
+
+  .demoForm {
+    padding: 24px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .messageRow {
+    margin-bottom: 16px;
+  }
+
+  .submitRow {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .formGroup {
+    margin-bottom: 16px;
+  }
+
+  .modalFooter {
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalHeader {
+    padding: 16px 20px;
+  }
+
+  .modalHeader h2 {
+    font-size: 1.2rem;
+  }
+
+  .demoForm {
+    padding: 20px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .submitButton {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .modalFooter {
+    padding: 14px 20px;
+  }
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalContent {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Scrollbar Styling */
+.modalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: rgba(244, 185, 66, 0.5);
+  border-radius: 3px;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 185, 66, 0.7);
+}

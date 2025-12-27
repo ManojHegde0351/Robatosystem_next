@@ -1,0 +1,307 @@
+/* WasteWatcher.module.css */
+
+.wasteWatcherSection {
+  padding: 6rem 0;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f4b942 ;
+  margin-bottom: 1rem;
+  background: #f4b94233 ;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #0f172a, #334155);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #475569;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+
+/* Content Layout */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.description p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Features Grid */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featureCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.1);
+  color: #f4b942 ;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.1);
+  background: #f4b942 ;
+  color: white;
+}
+
+.featureTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.featureDescription {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wasteWatcherSection {
+    padding: 4rem 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto 0;
+  }
+  
+  .description p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .featureCard {
+    padding: 1.5rem;
+  }
+}
+
+/* Vital Benefits Section */
+.vitalBenefits {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.vitalTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.vitalTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942 , #0B1A33);
+  border-radius: 2px;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefitCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942 , #0B1A33);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefitCard:hover::before {
+  opacity: 1;
+}
+
+.benefitValue {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f4b942;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.benefitLabel {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.benefitTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for Vital Benefits */
+@media (max-width: 768px) {
+  .vitalTitle {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .benefitCard {
+    padding: 2rem 1rem;
+  }
+  
+  .benefitValue {
+    font-size: 1.8rem;
+  }
+  
+  .benefitTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .vitalTitle {
+    font-size: 1.4rem;
+  }
+  
+  .benefitValue {
+    font-size: 2rem;
+  }
+}

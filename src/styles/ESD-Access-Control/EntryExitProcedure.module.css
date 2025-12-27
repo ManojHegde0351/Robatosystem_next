@@ -1,0 +1,323 @@
+/* EntryExitProcedure.module.css */
+.procedureSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionTitle:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #2ecc71, #3498db);
+  border-radius: 2px;
+}
+
+.combinedContainer {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.contentSection {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.imageSection {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.imageContainer {
+  position: sticky;
+  top: 2rem;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeef3;
+}
+
+.imageContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.procedureCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeef3;
+}
+
+.entryCard {
+  border-top: 4px solid #2ecc71;
+}
+
+.exitCard {
+  border-top: 4px solid #e74c3c;
+}
+
+.procedureCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.procedureHeader {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.procedureIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.entryIcon {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.exitIcon {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  transform: rotate(180deg);
+}
+
+.procedureHeader h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.procedureContent {
+  padding: 2rem;
+}
+
+.procedureSteps {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.procedureSteps li {
+  margin-bottom: 1.25rem;
+  padding-left: 3rem;
+  line-height: 1.7;
+  color: #4a5568;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.procedureSteps li:before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #f0f7ff;
+  color: #2c3e50;
+  font-weight: 600;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border: 2px solid #e0e6ed;
+}
+
+.entryCard .procedureSteps li:before {
+  background: #e8f8f0;
+  border-color: #d5f5e3;
+  color: #27ae60;
+}
+
+.exitCard .procedureSteps li:before {
+  background: #fde8e8;
+  border-color: #f5d0d0;
+  color: #e74c3c;
+}
+
+.exitOptions {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.exitOptions li {
+  padding: 0.6rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: #4a5568;
+  font-size: 1.05rem;
+}
+
+.exitOptions li:before {
+  content: "•";
+  color: #e74c3c;
+  font-weight: bold;
+  position: absolute;
+  left: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.note {
+  background: #fff8e1;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #ffc107;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #5d4037;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.additionalInfo {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.additionalInfo p {
+  margin: 0.6rem 0;
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 1.03rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .combinedContainer {
+    flex-direction: column;
+  }
+  
+  .imageSection {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  
+  .imageContainer {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .procedureSection {
+    padding: 3.5rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .procedureHeader {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .procedureHeader h3 {
+    font-size: 1.2rem;
+  }
+  
+  .procedureContent {
+    padding: 1.5rem;
+  }
+  
+  .procedureSteps li {
+    font-size: 1rem;
+    padding-left: 2.5rem;
+  }
+  
+  .exitOptions li {
+    font-size: 1rem;
+    padding-left: 1.75rem;
+  }
+  
+  .note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .procedureHeader {
+    padding: 1.1rem 1.25rem;
+  }
+  
+  .procedureIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+  }
+  
+  .procedureSteps li {
+    padding-left: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .procedureSteps li:before {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+  
+  .exitOptions li {
+    padding-left: 1.5rem;
+  }
+}

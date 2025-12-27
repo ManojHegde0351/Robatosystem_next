@@ -1,0 +1,145 @@
+/* Smart Parking System Section */
+.smartParkingSystem {
+  padding: 6rem 0;
+  background-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+  gap: 4rem;
+}
+
+.contentWrapper.reverse {
+  flex-direction: row-reverse;
+}
+
+.textContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #1a365d;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #a0c4ff);
+  border-radius: 2px;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.imageContainer {
+  flex: 1;
+  min-width: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .paragraph {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .smartParkingSystem {
+    padding: 4rem 0;
+  }
+  
+  .contentWrapper,
+  .contentWrapper.reverse {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .textContent {
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}

@@ -1,0 +1,51 @@
+/* Back to Top Button Styles */
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f4b942 0%, #e0a82e 100%);
+  color: white;
+  border: none;
+ 
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(244, 185, 66, 0.3);
+  text-decoration: none;
+  min-width: 180px;
+  opacity: 0.9;
+}
+
+.back-to-top:hover {
+  background: #0b1033;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 16, 51, 0.4);
+  opacity: 1;
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .back-to-top {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 160px;
+  }
+}

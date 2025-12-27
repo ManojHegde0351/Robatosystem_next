@@ -1,0 +1,445 @@
+/* Header Styles */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: all 0.3s ease;
+  /* Remove fixed padding that causes shifting on zoom */
+  background-color: transparent !important;
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo styles */
+.top-bar .logo {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.top-bar .logo img,
+.top-bar .logo .cursor-pointer,
+.top-bar .logo .header-logo {
+  max-width: 200px;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Responsive logo sizing */
+@media (max-width: 768px) {
+  .top-bar .logo img,
+  .top-bar .logo .cursor-pointer,
+  .top-bar .logo .header-logo {
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar .logo img,
+  .top-bar .logo .cursor-pointer,
+  .top-bar .logo .header-logo {
+    max-width: 140px;
+  }
+}
+
+/* Responsive padding for both top bar and nav */
+@media (min-width: 768px) {
+  .top-bar {
+    padding: 1rem 3rem;
+  }
+  
+  .nav-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .top-bar {
+    padding: 1rem 4rem;
+  }
+  
+  .nav-container {
+    padding: 0 4rem;
+  }
+}
+
+/* Phone number styles */
+.phone-number {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #ffffff;
+
+  transition: all 0.3s ease;
+}
+
+.phone-number a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.phone-number:hover {
+  color: #f4b942;
+  transform: translateY(-1px);
+}
+
+.phone-number svg {
+  margin-right: 0.5rem;
+  color: #f4b942;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  color: #ffffff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+ 
+}
+
+.social-icons a:hover {
+  background-color: #f4b942;
+  color: #0B1A33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 185, 66, 0.3);
+}
+
+/* Navigation bar */
+.nav-bar {
+  position: relative;
+  top: 0;
+  background: transparent;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Navigation container - same as top bar */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Sticky state */
+.nav-bar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+   background: linear-gradient(135deg, #0b10339d 0%, #1a2d5aaa 100%);
+
+  z-index: 1000;
+  animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Remove old container styles since we're using nav-container */
+.nav-bar .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+
+}
+
+/* Nav link hover effect */
+.nav-bar a:hover {
+  color: #f4b942;
+}
+
+/* Nav link underline animation */
+.nav-bar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0.5rem;
+  left: 0;
+  background-color: #f4b942;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-bar a:hover::after {
+  width: 100%;
+}
+
+/* Active navigation item */
+.nav-bar a.active {
+  color: #1a1a1a;
+  background-color: #f4b942;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+/* Remove underline for active item */
+.nav-bar a.active::after {
+  display: none;
+}
+
+/* Hover effect for active item */
+.nav-bar a.active:hover {
+  background-color: #ffd166;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(244, 185, 66, 0.3);
+}
+
+/* Ensure active state is visible on mobile */
+@media (max-width: 768px) {
+  .nav-bar a.active {
+    background-color: #f4b942;
+    color: #1a1a1a;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+
+/* Demo button */
+.Header-demo-button {
+  background: rgba(244, 185, 66, 0.1);
+  border: 2px solid #f4b942;
+  color: #f4b942;
+  padding: 0.6rem 1.5rem;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 0.9rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.Header-demo-button:hover {
+  background-color: #f4b942;
+  color: #0B1A33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 185, 66, 0.3);
+}
+
+/* Hamburger menu button */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  color: #f4b942;
+  transform: scale(1.1);
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Top bar adjustments */
+  .top-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none;
+  }
+  
+  /* Hamburger menu visible on mobile */
+  .hamburger-menu {
+    display: block;
+    order: 1;
+  }
+  
+  /* Logo in center on mobile */
+  .logo {
+    order: 2;
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Navigation adjustments */
+  .nav-container {
+    position: relative;
+  }
+  
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #0b10339d 0%, #1a2d5aaa 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  
+  .nav-links.mobile-open {
+    display: flex;
+    left: 0;
+  }
+  
+  .nav-bar a {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    width: 100%;
+    max-width: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .demo-button {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .nav-bar a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .demo-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.phone-number svg {
+  margin-right: 8px;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hamburger-menu {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #0b10339d 0%, #1a2d5aaa 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .nav-links.mobile-open {
+    display: flex;
+  }
+  
+  .nav-bar a {
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .demo-button {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 200px;
+  }
+}

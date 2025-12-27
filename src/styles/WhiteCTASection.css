@@ -1,0 +1,272 @@
+/* White CTA Section Styles */
+.white-cta-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.white-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230b1a33' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.white-cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Big Title Section */
+.cta-title {
+  margin-bottom: 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1.5s ease-out;
+}
+
+.cta-title.animate-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-title h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #0b1a33;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+/* Paragraph Section */
+.cta-paragraph {
+  margin-bottom: 3rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 1.5s ease-out 0.3s;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-paragraph.animate-paragraph {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-paragraph p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1a2d5a;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+/* CTA Buttons Container */
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.5s ease-out 0.6s;
+}
+
+.cta-buttons.animate-buttons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base CTA Button Styles */
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Demo Button */
+.demo-button {
+  background: linear-gradient(135deg, #f4b942 0%, #ffd166 100%);
+  color: #0b1a33;
+  box-shadow: 0 4px 15px rgba(244, 185, 66, 0.3);
+}
+
+.demo-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(244, 185, 66, 0.4);
+}
+
+/* Call Button */
+.call-button {
+  background: linear-gradient(135deg, #0b1a33 0%, #1a2d5a 100%);
+  color: #ffffff;
+  border: 2px solid #f4b942;
+  box-shadow: 0 4px 15px rgba(244, 185, 66, 0.2);
+}
+
+.call-button:hover {
+  background: linear-gradient(135deg, #f4b942 0%, #ffd166 100%);
+  color: #0b1a33;
+  border-color: #f4b942;
+  box-shadow: 0 6px 25px rgba(244, 185, 66, 0.4);
+}
+
+/* Button Icons */
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .button-icon {
+  transform: scale(1.2);
+}
+
+/* Shaking Animation for Call Icon */
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-10deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+.shake-always {
+  animation: shake 2s infinite;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .white-cta-section {
+    padding: 4rem 1rem;
+  }
+
+  .cta-title h2 {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .cta-paragraph p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .white-cta-section {
+    padding: 3rem 0.75rem;
+  }
+
+  .cta-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-title h2 {
+    font-size: 2rem;
+  }
+
+  .cta-paragraph {
+    margin-bottom: 2rem;
+  }
+
+  .cta-paragraph p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    min-width: 180px;
+  }
+
+  .button-icon {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cta-title h2 {
+    font-size: 3rem;
+  }
+
+  .cta-paragraph p {
+    font-size: 1.15rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.9rem 1.75rem;
+  }
+}
+
+/* Scroll-triggered visibility */
+.white-cta-section.visible {
+  visibility: visible;
+}
+
+.white-cta-section:not(.visible) {
+  visibility: hidden;
+}

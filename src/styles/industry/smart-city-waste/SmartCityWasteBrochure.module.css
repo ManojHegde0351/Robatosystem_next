@@ -1,0 +1,207 @@
+/* Smart City Waste Management Brochure Styles */
+.brochureSection {
+  position: relative;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brochureWrapper {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.brochureImageContainer {
+  position: relative;
+  height: 280px;
+  background: linear-gradient(135deg, #0B1A33 0%, #1e3a5f 100%);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.brochureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.overlayText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: white;
+  z-index: 2;
+}
+
+.overlayText p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlayText p:first-child {
+  color: #28a745;
+}
+
+.brochureContent {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0B1A33;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.title span {
+  color: #28a745;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.description {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.description p {
+  margin-bottom: 1rem;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0B1A33;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(11, 26, 51, 0.2);
+  margin-top: 1rem;
+}
+
+.downloadButton:hover {
+  background: #1a2a47;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 26, 51, 0.3);
+}
+
+.downloadIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .brochureWrapper {
+    flex-direction: row;
+  }
+  
+  .brochureImageContainer {
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .brochureContent {
+    width: 50%;
+    padding: 3rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .title span {
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .brochureSection {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .overlayText {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .overlayText p {
+    font-size: 1.5rem;
+  }
+  
+  .brochureContent {
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .title span {
+    font-size: 1.2rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .downloadButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}

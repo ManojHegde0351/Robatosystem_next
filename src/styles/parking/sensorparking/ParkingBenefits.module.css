@@ -1,0 +1,272 @@
+/* Benefits Section */
+.benefitsSection {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Benefits Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #2563eb;
+  border-radius: 2px;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.checkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-radius: 50%;
+  margin-right: 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  height: 400px;
+}
+
+.benefitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .benefitImage {
+  transform: scale(1.03);
+}
+
+/* Motorist Benefits */
+.motoristBenefitsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 4rem;
+}
+
+.motoristContent {
+  padding-right: 2rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.75rem;
+  color: #1e293b;
+  text-align: left;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionSubtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #2563eb;
+  border-radius: 2px;
+}
+
+.motoristGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.motoristBenefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 3px solid #2563eb;
+}
+
+.motoristBenefit:hover {
+  transform: translateX(5px);
+  box-shadow: 2px 0 10px rgba(37, 99, 235, 0.1);
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.motoristBenefit p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Motorist Image */
+.motoristImageContainer {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  height: 400px;
+}
+
+.motoristImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.motoristImageContainer:hover .motoristImage {
+  transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .benefitsGrid {
+    gap: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .motoristBenefitsContainer {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .imageContainer {
+    height: 350px;
+    order: -1;
+  }
+  
+  .motoristBenefitsContainer {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+  
+  .motoristContent {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle,
+  .sectionSubtitle {
+    text-align: center;
+  }
+  
+  .sectionTitle::after,
+  .sectionSubtitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .motoristImageContainer {
+    height: 300px;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .benefitsSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.25rem;
+  }
+  
+  .motoristBenefits {
+    padding: 2rem 1.5rem;
+  }
+}

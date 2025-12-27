@@ -1,0 +1,182 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Page Title Styles */
+.pageTitleContainer {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0 3rem;
+  padding: 0 1rem;
+}
+
+.pageTitle {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: #1f2937;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  padding: 1rem 2.5rem;
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+/* Remove the old title styles */
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 0 0 4rem;
+}
+
+.content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.sectionSubtitle {
+  font-size: 1.8rem;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.benefitsList,
+.advantagesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitsList li,
+.advantagesList li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.checkIcon {
+  color: #10b981;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.imageContainer {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.03);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .section {
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .pageTitle {
+    font-size: 2.2rem;
+    padding: 0.8rem 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 1.8rem;
+    padding: 0.8rem 1.5rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  
+  .section {
+    flex-direction: column;
+    text-align: left;
+    gap: 2rem;
+  }
+  
+  .advantagesSection {
+    flex-direction: column-reverse;
+  }
+  
+  .content,
+  .imageContainer {
+    width: 100%;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .pageTitle {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.3rem;
+  }
+  
+  .benefitsList li,
+  .advantagesList li {
+    font-size: 1rem;
+  }
+}

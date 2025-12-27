@@ -1,0 +1,231 @@
+.brochureSection {
+  position: relative;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brochureWrapper {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.brochureImageContainer {
+  position: relative;
+  height: 280px;
+  background: linear-gradient(135deg, #0B1A33 0%, #1e3a5f 100%);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.brochureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.overlayText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.overlayText p {
+  margin: 0;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.brochureContent {
+  padding: 2rem;
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0B1A33;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.title span {
+  color: #f4b942;
+  font-weight: 500;
+}
+
+.description {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.description p {
+  margin-bottom: 1.25rem;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0B1A33;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.downloadButton:hover {
+  background: #f4b942;
+  color: #0B1A33;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(244, 185, 66, 0.3);
+}
+
+.downloadIcon {
+  font-size: 1.1rem;
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle background gradient animation */
+.brochureSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(11, 26, 51, 0.02) 0%, rgba(244, 185, 66, 0.02) 100%);
+  z-index: 1;
+  animation: fadeIn 1s ease-out;
+}
+
+.brochureSection::after {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .brochureSection {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .brochureImageContainer {
+    height: 200px;
+  }
+
+  .overlayText {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+  }
+
+  .brochureContent {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .downloadButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .brochureWrapper {
+    flex-direction: row;
+    min-height: 350px;
+  }
+
+  .brochureImageContainer {
+    flex: 1;
+    height: auto;
+  }
+
+  .brochureContent {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brochureSection {
+    padding: 5rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .brochureWrapper {
+    min-height: 400px;
+  }
+}

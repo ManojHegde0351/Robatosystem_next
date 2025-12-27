@@ -1,0 +1,130 @@
+/* src/styles/parking/led/SpecificationsTable.module.css */
+.specificationsSection {
+  padding: 4rem 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #1e40af;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 2px;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.specsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.specsTable th,
+.specsTable td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.specsTable th {
+  background-color: #1e40af;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.specsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.parameterCell {
+  font-weight: 500;
+  color: #1e293b;
+  width: 40%;
+  background-color: #f8fafc;
+}
+
+.valueCell {
+  color: #475569;
+}
+
+.evenRow {
+  background-color: #ffffff;
+}
+
+.oddRow {
+  background-color: #f8fafc;
+}
+
+/* Hover effect */
+.specsTable tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .specsTable th,
+  .specsTable td {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .parameterCell {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .specsTable {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .specsTable th,
+  .specsTable td {
+    white-space: nowrap;
+    min-width: 150px;
+  }
+}

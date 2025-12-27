@@ -1,0 +1,134 @@
+.introSection {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.fullWidthContent {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942 0%, #0B1A33 100%);
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  text-align: left;
+  margin: 0 auto 2.5rem;
+  max-width: 800px;
+}
+
+.description p {
+  margin-bottom: 1.5rem;
+}
+
+.additionalContent {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.additionalContent p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.readMoreBtn {
+  background: linear-gradient(90deg, #0B1A33 0%, #f4b942 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.readMoreBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.readMoreBtn:active {
+  transform: translateY(0);
+}
+
+.readMoreBtn::after {
+  content: '↓';
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.readMoreBtn.expanded::after {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .fullWidthContent {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .readMoreBtn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+}

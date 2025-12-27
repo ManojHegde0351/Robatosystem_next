@@ -1,0 +1,117 @@
+/* Office Parking Intro Section */
+.officeParkingIntro {
+  padding: 6rem 0;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.textContent {
+  width: 100%;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #1a365d;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #a0c4ff);
+  border-radius: 2px;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.largeText {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: #2d3748;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .largeText {
+    font-size: 1.4rem;
+  }
+  
+  .paragraph {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .officeParkingIntro {
+    padding: 5rem 0;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .largeText {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .largeText {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}

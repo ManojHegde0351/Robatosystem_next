@@ -1,0 +1,244 @@
+/* LED Parking FAQ Section */
+.led-parking-faq {
+  padding: 6rem 8rem;
+  margin: 4rem 0;
+  background-color: #f8f9fa;
+  color: #0b1a33;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .led-parking-faq {
+    padding: 5rem 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .led-parking-faq {
+    padding: 4rem 2rem;
+    margin: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .led-parking-faq {
+    padding: 3rem 1.5rem;
+    margin: 2rem 0;
+  }
+}
+
+.led-parking-faq .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-header h2 {
+  color: #f4b942;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.faq-header h3 {
+  color: #0b1a33;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.faq-header p {
+  color: #1a2d5a;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.faq-content {
+  padding: 2rem 0;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border: 1px solid rgba(11, 26, 51, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: rgba(244, 185, 66, 0.05);
+  border-color: rgba(244, 185, 66, 0.3);
+  box-shadow: 0 6px 20px rgba(244, 185, 66, 0.15);
+  transform: translateY(-2px);
+}
+
+.faq-item.active {
+  background-color: rgba(244, 185, 66, 0.08);
+  border-color: #f4b942;
+  box-shadow: 0 8px 25px rgba(244, 185, 66, 0.2);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #0b1a33;
+  text-align: left;
+  padding: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-question:hover {
+  color: #f4b942;
+  transform: translateX(5px);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: #f4b942;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+
+.faq-item:hover .faq-question::after,
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  color: #1a2d5a;
+  line-height: 1.6;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  margin-top: 0;
+  visibility: hidden;
+}
+
+.faq-item:hover .faq-answer,
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  padding: 1rem 0 0 0;
+  margin-top: 1rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .faq-header h3 {
+    font-size: 2rem;
+  }
+  
+  .faq-header p {
+    font-size: 1rem;
+  }
+  
+  .faq-content {
+    padding: 1.5rem 0;
+  }
+  
+  .faq-item {
+    padding: 1rem;
+  }
+  
+  .faq-question {
+    font-size: 1.1rem;
+  }
+  
+  .faq-answer p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .faq-content {
+    padding: 1rem 0;
+  }
+  
+  .faq-item {
+    padding: 0.75rem;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+  }
+  
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for items appearing */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+.faq-item:nth-child(4) { animation-delay: 0.4s; }
+.faq-item:nth-child(5) { animation-delay: 0.5s; }
+.faq-item:nth-child(6) { animation-delay: 0.6s; }
+.faq-item:nth-child(7) { animation-delay: 0.7s; }

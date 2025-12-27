@@ -1,0 +1,116 @@
+/* src/styles/industry/smart-andon/HeroWithText.module.css */
+.heroContainer {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  background-image: url('/images/industry4.0/SmartANDONSystem/Smart-Andon-background.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.textContainer {
+  color: white;
+  text-align: left;
+  max-width: 800px;
+}
+
+.mainText {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  min-height: 1.2em;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlightText {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #f4b942;
+  margin: 1rem 0 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 400;
+  color: #f4b942;
+  will-change: opacity;
+  transition: opacity 0.5s ease;
+}
+
+@media (max-width: 1024px) {
+  .mainText {
+    font-size: 2.8rem;
+  }
+  
+  .highlightText {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .mainText {
+    font-size: 2.2rem;
+  }
+  
+  .highlightText {
+    font-size: 2.5rem;
+  }
+
+  .cursor {
+    margin-left: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainText {
+    font-size: 1.8rem;
+  }
+  
+  .highlightText {
+    font-size: 2rem;
+  }
+  
+  .content {
+    padding: 0 1.5rem;
+  }
+}

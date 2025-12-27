@@ -1,0 +1,580 @@
+.benefits {
+  padding: 6rem 0;
+  background-color: white;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.3;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.videoContainer {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  position: relative;
+}
+
+.benefitsList {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.benefitsList h3 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.benefitsList h3:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 2px;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.benefitItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: #3b82f6;
+}
+
+.benefitIcon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.benefitItem span {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Mixed Parking System Section */
+.mixedParkingSection {
+  margin: 5rem 0;
+  padding: 3rem 0;
+  background-color: #f8fafc;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mixedParkingContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+.mixedParkingText {
+  flex: 1;
+}
+
+.mixedParkingText h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.mixedParkingText p {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mixedParkingImage {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mixedParkingImage:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.mixedImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mixedParkingImage:hover .mixedImage {
+  transform: scale(1.05);
+}
+
+/* Sector Parking Solutions */
+.sectorSolutions {
+  margin: 4rem 0;
+}
+
+.sectorSection {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.sectorSection:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.sectorContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+.sectionReverse .sectorContent {
+  flex-direction: row-reverse;
+}
+
+.sectorText {
+  flex: 1;
+}
+
+.sectorText h2 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sectorText p {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.benefitsList {
+  margin-top: 2rem;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.benefitsList h3 {
+  color: #1e40af;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.benefitsList ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.benefitsList li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.benefitsList li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.sectorImage {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sectorImage:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.solutionImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.sectorImage:hover .solutionImage {
+  transform: scale(1.05);
+}
+
+/* Education Section Specific */
+.educationSection {
+  background-color: #f8fafc;
+}
+
+@media (max-width: 1024px) {
+  .sectorContent {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .sectorImage {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .sectorText h2 {
+    text-align: center;
+  }
+  
+  .benefitsList {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectorSection {
+    padding: 3rem 1rem;
+  }
+  
+  .sectorContent {
+    padding: 0 1rem;
+  }
+  
+  .sectorText h2 {
+    font-size: 1.6rem;
+  }
+  
+  .sectorText p {
+    font-size: 1rem;
+  }
+  
+  .benefitsList {
+    padding: 1.25rem;
+  }
+  
+  .benefitsList h3 {
+    font-size: 1.1rem;
+  }
+  
+  .benefitsList li {
+    font-size: 0.95rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mixedParkingContent {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .mixedParkingImage {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .mixedParkingText h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .mixedParkingSection {
+    padding: 2rem 1rem;
+  }
+  
+  .mixedParkingText h2 {
+    font-size: 1.6rem;
+  }
+  
+  .mixedParkingText p {
+    font-size: 1rem;
+  }
+  
+  .mixedParkingContent {
+    padding: 0 1rem;
+  }
+}
+
+.videoContainer {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: #000;
+}
+
+.videoContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.videoWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.videoContainer:hover .videoWrapper iframe {
+  transform: scale(1.02);
+}
+
+/* Play button overlay */
+.videoContainer::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.videoContainer:hover::after {
+  opacity: 1;
+  width: 80px;
+  height: 80px;
+}
+
+.videoContainer::before {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  color: white;
+  font-size: 24px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.videoContainer:hover::before {
+  transform: translate(-40%, -50%) scale(1.1);
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .videoContainer {
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .benefitsList {
+    padding: 1rem;
+  }
+  
+  .benefitsList h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .benefitItem {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsList h3 {
+    font-size: 1.3rem;
+  }
+  
+  .benefitItem {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .benefitIcon {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+}
+
+.cta {
+  text-align: center;
+  background: #f8fafc;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+}
+
+.cta p {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.ctaButton {
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
+}
+
+.ctaButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2), 0 4px 6px -2px rgba(37, 99, 235, 0.1);
+}
+
+@media (max-width: 768px) {
+  .benefits {
+    padding: 4rem 0;
+  }
+  
+  .header h2 {
+    font-size: 2rem;
+  }
+  
+  .header p, .cta p {
+    font-size: 1rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta {
+    padding: 2rem 1.5rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+}

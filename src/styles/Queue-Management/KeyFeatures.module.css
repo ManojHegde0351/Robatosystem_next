@@ -1,0 +1,98 @@
+.features {
+  padding: 5rem 2rem;
+  background-color: white;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1f2937;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.featureCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.iconContainer {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f9ff;
+  border-radius: 50%;
+  color: #0369a1;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .iconContainer {
+  background: #e0f2fe;
+  transform: scale(1.1);
+}
+
+.featureCard h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.featureCard p {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .features {
+    padding: 4rem 1.5rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .features {
+    padding: 3rem 1rem;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .featureCard {
+    padding: 1.75rem 1.25rem;
+  }
+}

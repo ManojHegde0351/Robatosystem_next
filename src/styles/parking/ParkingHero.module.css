@@ -1,0 +1,61 @@
+/* src/styles/parking/ParkingHero.module.css */
+.hero {
+  padding: 120px 0 100px;
+  background: linear-gradient(rgba(11, 26, 51, 0.7), rgba(11, 26, 51, 0.9)), 
+              url('/images/parking-Background.webp') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 80px;
+    min-height: 50vh;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+  }
+}

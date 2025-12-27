@@ -1,0 +1,91 @@
+/* University Parking Intro Section */
+.universityParkingIntro {
+  padding: 6rem 0;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.textContent {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1a365d;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #a0c4ff);
+  border-radius: 2px;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #4a5568;
+  margin-bottom: 1.8rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .paragraph {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .universityParkingIntro {
+    padding: 5rem 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+  }
+}

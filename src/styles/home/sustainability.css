@@ -1,0 +1,247 @@
+/* sustainability.css */
+.sustainability-section {
+  width: 100%;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+}
+.sustainability-container {
+  display: flex;
+  width: 100%;
+  max-width: none;
+}
+
+.sustainability-left {
+  flex: 1;
+  background-color: #0b1a33;
+  background: linear-gradient(135deg, #0b1a33 0%, #0b1a33 100%);
+  color: white;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.sustainability-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.sustainability-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0.2;
+}
+
+.sustainability-content {
+  max-width: 500px;
+  width: 100%;
+  padding: 0 6rem; 
+  text-align: start;
+}
+
+.sustainability-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sustainability-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.sustainability-description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.sustainability-button {
+  display: inline-block;
+  background-color: #f4b942 !important;
+  color: #0B1A33 !important;
+  padding: 0.75rem 2rem;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer !important;
+  border: none;
+  border-radius: 4px;
+  position: relative;
+  z-index: 10;
+}
+
+.sustainability-button:hover {
+  background-color: #e0a82e !important;
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.sustainability-button:active {
+  transform: translateY(0);
+}
+
+/* Right Column Styling */
+.sustainability-right {
+  flex: 1;
+  background-color: #f4b942; /* Fallback color */
+  color: #0B1A33;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.sustainability-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Background image with fallback */
+.sustainability-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.sustainability-right::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(244, 185, 66, 0.6) 0%,
+    rgba(244, 185, 66, 0.7) 100%
+  );
+  z-index: 1;
+  opacity: 0.8; /* Slightly reduced opacity */
+  transition: opacity 0.3s ease;
+}
+.best-practices-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 0rem;
+  text-align: start;
+}
+
+/* Make sure text remains readable */
+.best-practices-title{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: start; 
+      margin-bottom: 1rem;
+}
+
+.best-practices-description,
+.practice-item {
+  position: relative;
+  z-index: 2;
+}
+
+.practices-list {
+  list-style: none;
+  padding: 0;
+}
+
+.practice-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.bullet-point {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #0B1A33;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.sustainability-right:hover::after {
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .sustainability-container {
+    flex-direction: column;
+  }
+
+  .sustainability-left,
+  .sustainability-right {
+    padding: 3rem 2rem;
+  }
+
+  .sustainability-content,
+  .best-practices-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .sustainability-title {
+    font-size: 2rem;
+  }
+
+  .sustainability-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .best-practices-title {
+    font-size: 1.75rem;
+  }
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .sustainability-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  .sustainability-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .sustainability-left,
+  .sustainability-right {
+    padding: 3rem 2rem;
+  }
+
+  .sustainability-content,
+  .best-practices-content {
+    max-width: 100%;
+  }
+}

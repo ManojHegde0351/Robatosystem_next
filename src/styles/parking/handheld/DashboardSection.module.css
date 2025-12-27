@@ -1,0 +1,124 @@
+.dashboardSection {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg,#f4b942 0%, #0B1A33 100%);
+  border-radius: 2px;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.checkIcon {
+  color: #00c853;
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.carouselContainer {
+  flex: 1;
+  min-width: 400px;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carouselSlide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.activeDot {
+  background-color: #f4b942;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .carouselContainer {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}

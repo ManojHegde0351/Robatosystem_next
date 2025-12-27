@@ -1,0 +1,598 @@
+/* src/styles/industry/smart-city-waste/WasteToWealth.module.css */
+
+.benefitsSection {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.wasteToWealth {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 5rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.sectionTitle span {
+  color: #0ea5e9;
+  display: block;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.painPointsContainer {
+  position: relative;
+  min-height: 600px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  perspective: 1000px;
+  background: transparent;
+}
+
+.centerCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: #0a2e38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(14, 165, 233, 0.3);
+  transition: all 0.3s ease;
+}
+
+.centerCircle h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0 2rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.painPointCard {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2e8f0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+   box-shadow 0.3s ease,
+              border-color 0.3s ease,
+              opacity 0.3s ease;
+  z-index: 1;
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.painPointCard.visible {
+  opacity: 1;
+  transform: scale(1) translate(-50%, -50%) !important;
+}
+
+.painPointCard:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  border-color: #f4b942;
+  background: #f8fafc;
+}
+
+.painPointContent {
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.painPointTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.percentage {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f4b942;
+  margin: 0.5rem 0;
+  line-height: 1;
+}
+
+.painPointDescription {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Position the cards in a circle with better spacing */
+.top-left {
+  top: 12%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+}
+
+.top-right {
+  top: 12%;
+  right: 18%;
+  transform: translate(50%, -50%);
+}
+
+.right-middle {
+  top: 50%;
+  right: 8%;
+  transform: translate(0, -50%);
+}
+
+.bottom-right {
+  bottom: 12%;
+  right: 18%;
+  transform: translate(50%, 50%);
+}
+
+.bottom-left {
+  bottom: 12%;
+  left: 18%;
+  transform: translate(-50%, 50%);
+}
+
+.left-middle {
+  top: 50%;
+  left: 8%;
+  transform: translate(0, -50%);
+}
+
+/* Add connecting lines */
+.painPointCard::before {
+  content: '';
+  position: absolute;
+  background: #e2e8f0;
+  z-index: -1;
+}
+
+.top-left::before,
+.top-right::before,
+.bottom-left::before,
+.bottom-right::before {
+  width: 80px;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.top-left::before { right: -80px; }
+.top-right::before { left: -80px; }
+.bottom-left::before { right: -80px; }
+.bottom-right::before { left: -80px; }
+
+.left-middle::before,
+.right-middle::before {
+  width: 2px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-middle::before { bottom: -80px; }
+.right-middle::before { bottom: -80px; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .painPointsContainer {
+    max-width: 900px;
+  }
+  
+  .centerCircle {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .centerCircle h3 {
+    font-size: 1.5rem;
+  }
+  
+  .painPointCard {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .top-left { left: 15%; }
+  .top-right { right: 15%; }
+  .bottom-left { left: 15%; }
+  .bottom-right { right: 15%; }
+}
+
+@media (max-width: 992px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .painPointsContainer {
+    min-height: 500px;
+    max-width: 800px;
+  }
+  
+  .centerCircle {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .centerCircle h3 {
+    font-size: 1.3rem;
+    padding: 0 1.5rem;
+  }
+  
+  .painPointCard {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .painPointTitle {
+    font-size: 1rem;
+  }
+  
+  .percentage {
+    font-size: 1.5rem;
+  }
+  
+  .painPointDescription {
+    font-size: 0.8rem;
+  }
+  
+  .top-left { left: 12%; }
+  .top-right { right: 12%; }
+  .bottom-left { left: 12%; }
+  .bottom-right { right: 12%; }
+  .left-middle { left: 5%; }
+  .right-middle { right: 5%; }
+}
+
+/* Pause animation on hover */
+.painPointsContainer:hover .painPointCard {
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Pause animation when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+  .painPointCard {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .wasteToWealth {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.benefitsSection {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitsSection .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.benefitsSection .sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 5rem;
+  text-align: center;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.benefitsSection .sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942, #0B1A33);
+  border-radius: 2px;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.benefitCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #f4b942, #0B1A33);
+  transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefitCard:hover::before {
+  height: 8px;
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover .benefitIcon {
+  transform: scale(1.1) translateY(-5px);
+}
+
+.benefitTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.benefitTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: #f4b942;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.benefitCard:hover .benefitTitle::after {
+  width: 60px;
+}
+
+.benefitPercentage {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f4b942;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1;
+  background: rgba(14, 165, 233, 0.1);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  min-width: 80px;
+}
+
+.benefitDescription {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .benefitsSection .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefitsSection {
+    padding: 4rem 0;
+  }
+  
+  .benefitsSection .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .benefitCard {
+    padding: 1.5rem;
+  }
+  
+  .benefitTitle {
+    font-size: 1.3rem;
+  }
+  
+  .benefitPercentage {
+    font-size: 1.5rem;
+  }
+  
+  .benefitDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefitsSection .sectionTitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* Pain Points Section */
+.painPointsSection {
+  margin-top: 6rem;
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.painPointsTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.painPointsTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942, #0B1A33);
+  border-radius: 2px;
+}
+
+.painPointsList {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.painPoint {
+  display: flex;
+  align-items: flex-start;
+  background: #f8fafc;
+  padding: 1.2rem 1.8rem;
+  border-radius: 10px;
+  border-left: 4px solid #f4b942;
+  transition: all 0.3s ease;
+}
+
+.painPoint:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: #f1f5f9;
+}
+
+.painPointIcon {
+  color: #f4b942;
+  font-weight: bold;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  min-width: 20px;
+  margin-top: 0.2rem;
+}
+
+.painPoint span:last-child {
+  color: #334155;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .painPointsSection {
+    padding: 2rem 1.5rem;
+    margin-top: 4rem;
+  }
+  
+  .painPointsTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .painPoint {
+    padding: 1rem 1.2rem;
+  }
+  
+  .painPoint span:last-child {
+    font-size: 1rem;
+  }
+}

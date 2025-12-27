@@ -1,0 +1,292 @@
+/* How It Works Section */
+.howItWorks {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.2rem;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.workingContent {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.workingText {
+  flex: 1;
+}
+
+.workingText p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #4b5563;
+  font-size: 1.1rem;
+}
+
+.workingDiagram {
+  flex: 1;
+  min-height: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.diagramPlaceholder {
+  color: #9ca3af;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .workingContent {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .workingDiagram {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .howItWorks {
+    padding: 3rem 1rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+  
+  .workingText p {
+    font-size: 1rem;
+  }
+}
+/* Components Section */
+.componentsSection {
+  margin-top: 3rem;
+}
+
+.componentsSection h3 {
+  font-size: 1.4rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.componentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.componentCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.componentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.componentImage {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  padding: 10px;
+}
+
+.componentCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.componentCard h4 {
+  color: #1f2937;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
+.installationNote {
+  background-color: #eff6ff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-right: 4px solid #3b82f6;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1e40af;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .componentsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .componentsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .componentsSection h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .componentsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .componentCard {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+/* Specs Section */
+.specsSection {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.specsContent {
+  flex: 1;
+}
+
+.specsContent h3 {
+  font-size: 1.6rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.specsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.specsList li {
+  margin-bottom: 0.8rem;
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.specsList li:before {
+  content: '•';
+  color: #3b82f6;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.2rem;
+  margin-left: -1.2rem;
+}
+
+.specsImage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.readerImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.specsImage:hover .readerImage {
+  transform: scale(1.03);
+}
+
+@media (max-width: 1024px) {
+  .specsSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .specsImage {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .specsSection {
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  
+  .specsContent h3 {
+    font-size: 1.4rem;
+  }
+  
+  .specsList li {
+    font-size: 1rem;
+  }
+  
+  .specsImage {
+    max-width: 100%;
+  }
+}

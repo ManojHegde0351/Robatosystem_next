@@ -1,0 +1,548 @@
+/* Enquiry Form Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  padding: 2rem;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Form Container */
+.loginContainer {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 1000px;
+  max-width: 95vw;
+  height: 90vh;
+  max-height: 95vh;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure body doesn't scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Header */
+.loginHeader {
+  text-align: center;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  padding-top: 0.5rem;
+}
+
+.loginHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0.2rem 0;
+  line-height: 1.2;
+}
+
+.loginHeader p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin: 0.1rem 0 0;
+  line-height: 1.2;
+}
+
+/* Form Elements */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0.5rem 0.5rem 1rem 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 0.5rem;
+}
+
+/* Custom scrollbar for the form */
+.loginForm::-webkit-scrollbar {
+  width: 6px;
+}
+
+.loginForm::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.loginForm::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.loginForm::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+  flex-shrink: 0;
+}
+
+.formGroup label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.2;
+}
+
+.formGroup input,
+.formGroup select,
+.textarea {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.5;
+  height: auto;
+  min-height: 40px;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.textarea {
+  min-height: 100px;
+  max-height: 150px;
+  resize: vertical;
+  box-sizing: border-box;
+  line-height: 1.5;
+  padding: 0.6rem 0.8rem !important;
+  overflow-y: auto;
+}
+
+/* Status Messages */
+.statusMessage {
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statusMessage.success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: 1px solid #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.statusMessage.success::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.statusMessage.error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2);
+}
+
+/* Submit Button */
+.loginButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 1rem 0 0;
+  height: auto;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginButton:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.loginButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #2c4a7a 0%, #1a365d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 54, 93, 0.3);
+}
+
+.contactInfo {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.contactInfo h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0.2rem 0;
+  line-height: 1.2;
+}
+
+.contactInfo > p {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin: 1rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contactItem a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactItem a:hover {
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+.contactIcon {
+  font-size: 1em;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-right: 0.75rem;
+  color: #3b82f6;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contactText {
+  flex: 1;
+}
+
+.contactLabel {
+  font-weight: 600;
+  color: #1a365d;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.formWrapper {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+
+}
+
+.formColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+.contactColumn {
+  flex: 1;
+  min-width: 0;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  height: fit-content;
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.contactImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+/* Contact Overlay on Image */
+.contactOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.3) 100%);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.overlayContactItem {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: transform 0.3s ease;
+}
+
+.overlayContactItem:hover {
+  transform: translateX(5px);
+}
+
+.overlayContactItem a {
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.overlayContactItem a:hover {
+  color: #f4b942 !important;
+  text-decoration: underline;
+}
+
+.overlayContactIcon {
+  font-size: 1.2em;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-right: 1rem;
+  color: #f4b942;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 185, 66, 0.2);
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.overlayContactLabel {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.overlayContactValue {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loginContainer {
+    width: 90%;
+    min-width: auto;
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .formWrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .formColumn, .contactColumn {
+    width: 100%;
+  }
+  
+  .imageContainer {
+    min-height: 300px;
+  }
+  
+  .contactImage {
+    min-height: 300px;
+  }
+  
+  .contactOverlay {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .overlayContactItem {
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .overlayContactIcon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1em;
+    margin-right: 0.75rem;
+  }
+  
+  .overlayContactLabel {
+    font-size: 0.8rem;
+  }
+  
+  .overlayContactValue {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 1rem;
+  }
+  
+  .formGroup input,
+  .formGroup select,
+  .textarea {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .loginButton {
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .contactItem {
+    margin: 0.75rem 0;
+  }
+}

@@ -1,0 +1,143 @@
+.headerContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.headerContent h2 {
+  font-size: 2.5rem;
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.headerContent .lead {
+  font-size: 1.25rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+.introSection {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureList li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.featureList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.imageContainer {
+  flex: 0 0 45%;
+  position: sticky;
+  top: 2rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.featureImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .featureImage {
+  transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    flex-direction: column-reverse;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+  }
+  
+  .featureList li {
+    font-size: 0.95rem;
+    padding-left: 1.75rem;
+  }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headerContent {
+    margin-bottom: 2rem;
+  }
+  
+  .headerContent h2 {
+    font-size: 2rem;
+  }
+  
+  .headerContent .lead {
+    font-size: 1.1rem;
+  }
+}

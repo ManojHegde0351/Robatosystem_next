@@ -1,0 +1,140 @@
+.solutionsSection {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionTitle {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.solutionsContent {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.introText {
+  color: #4a4a4a;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.solutionsList {
+  margin-top: 2rem;
+}
+
+.solutionsTitle {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.solutionItem {
+  display: flex;
+  margin-bottom: 1.5rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solutionItem:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.solutionBullet {
+  color: #e74c3c;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.solutionItem h4 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.solutionItem p {
+  color: #4a4a4a;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solutionImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.solutionImage:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .solutionsContent {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .imageContainer {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .solutionImage {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .solutionsSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .solutionsTitle {
+    font-size: 1.3rem;
+  }
+  
+  .solutionItem {
+    padding: 1.25rem;
+  }
+  
+  .solutionBullet {
+    font-size: 1.5rem;
+  }
+}

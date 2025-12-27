@@ -1,0 +1,124 @@
+.benefitsSection {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.25rem;
+  color: #1a365d;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefitCard {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.iconContainer {
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.benefitIcon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.benefitTitle {
+  font-size: 1.25rem;
+  color: #1e40af;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.benefitDescription {
+  color: #4b5563;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .benefitsSection {
+    padding: 4rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .benefitCard {
+    padding: 1.5rem;
+  }
+
+  .iconContainer {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefitIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .benefitTitle {
+    font-size: 1.125rem;
+  }
+
+  .benefitDescription {
+    font-size: 0.875rem;
+  }
+}

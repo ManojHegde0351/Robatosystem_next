@@ -1,0 +1,138 @@
+.intro {
+  padding: 6rem 0;
+  background-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.description {
+  max-height: 200px; /* Show only first few lines initially */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease-in-out;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #374151;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.description.expanded {
+  max-height: 2500px; /* Expand to show all content */
+}
+
+.description::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.9));
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.description.expanded::after {
+  opacity: 0;
+}
+
+.content p {
+  font-size: 1.15rem;
+  color: #374151;
+  line-height: 1.9;
+  margin-bottom: 1.75rem;
+  max-width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.readMoreButton {
+  display: block;
+  margin: 2rem auto 3rem;
+  background: none;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.readMoreButton:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.readMoreButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Add a subtle gradient overlay when content is collapsed */
+.description:not(.expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(249, 250, 251, 0), #f9fafb);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Remove gradient when expanded */
+.description.expanded::after {
+  opacity: 0;
+  display: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .intro {
+    padding: 4rem 0;
+  }
+  
+  .content h2 {
+    font-size: 2rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+  }
+  
+
+}

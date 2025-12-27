@@ -1,0 +1,179 @@
+.headerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin: 0 auto 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0B1A33 0%, #0B1A33 100%);
+  border-radius: 2px;
+}
+
+.solutionsSection {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.solutionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.solutionCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #f4b942;
+}
+
+.solutionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.solutionTitle {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.solutionTitle::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(90deg, #0B1A33 0%, #0B1A33 100%);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.solutionTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(244, 185, 66, 0.2) 0%, rgba(11, 26, 51, 0.2) 100%);
+  border-radius: 2px;
+}
+
+.solutionFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+}
+
+.solutionFeature {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.solutionFeature::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00c853;
+  font-weight: bold;
+}
+
+.enquireButton {
+  background: linear-gradient(90deg, #0B1A33 0%, #0B1A33 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.enquireButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #f4b942 0%, #f4b942 100%);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.enquireButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.enquireButton:hover::before {
+  width: 100%;
+}
+
+.enquireButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .solutionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .solutionsSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .solutionCard {
+    padding: 1.5rem;
+  }
+  
+  .solutionTitle {
+    font-size: 1.3rem;
+  }
+}

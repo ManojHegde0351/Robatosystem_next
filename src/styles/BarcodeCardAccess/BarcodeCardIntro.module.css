@@ -1,0 +1,176 @@
+.introSection {
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.twoColumnSection {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  margin: 4rem 0;
+}
+
+.column {
+  flex: 1;
+}
+
+.imageColumn {
+  flex: 0 0 45%;
+  position: sticky;
+  top: 2rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin: 2rem 0 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.description {
+  color: #4a5568;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.additionalContent {
+  margin-top: 1.5rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.featureList {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.featureItem {
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+  position: relative;
+  line-height: 1.6;
+}
+
+.featureItem::before {
+  content: '✓';
+  color: #4299e1;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: #4299e1;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.readMoreButton:hover {
+  color: #3182ce;
+  text-decoration: underline;
+}
+
+.readMoreButton::after {
+  content: '→';
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.readMoreButton[data-show-more="true"]::after {
+  transform: rotate(90deg);
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+}
+
+.introImage {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.introImage:hover {
+  transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .twoColumnSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .imageColumn {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .featureList {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .imageContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .introSection {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .description, .featureItem {
+    font-size: 1rem;
+  }
+}

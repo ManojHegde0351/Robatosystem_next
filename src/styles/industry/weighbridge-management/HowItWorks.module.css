@@ -1,0 +1,168 @@
+.howItWorks {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0B1A33;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f4b942, #0B1A33);
+  border-radius: 2px;
+}
+
+.phases {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.phase {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phase:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.phaseContent {
+  flex: 1;
+  padding: 2.5rem;
+}
+
+.phaseNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f4b942;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.phaseTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0B1A33;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.phaseDescription {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.phaseImage {
+  flex: 1;
+  position: relative;
+  min-height: 300px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.phase:hover .image {
+  transform: scale(1.03);
+}
+
+/* Alternating layout */
+.leftImage {
+  flex-direction: row-reverse;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .phase {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .leftImage {
+    flex-direction: column;
+  }
+
+  .phaseContent {
+    padding: 2rem;
+  }
+
+  .phaseImage {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .howItWorks {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .phaseTitle {
+    font-size: 1.3rem;
+  }
+
+  .phaseDescription {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .phaseContent {
+    padding: 1.5rem;
+  }
+
+  .phaseTitle {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,159 @@
+.ledParkingIntro {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.fullWidthContent {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.textContent {
+  color: #4b5563;
+  line-height: 1.8;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.textContent p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  opacity: 1;
+}
+
+/* Container for the text with gradient fade */
+.textContent > div {
+  position: relative;
+}
+
+/* Gradient overlay for collapsed state */
+.textContent:not(.expanded) > div::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+
+}
+
+/* No gradient when expanded */
+.textContent.expanded > div::after {
+  display: none;
+}
+
+.readMoreButton {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #1e40af;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem 0.5rem 0;
+  margin: 1rem 0 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Add some spacing between the button and text */
+.textContent {
+  padding-bottom: 1.5rem;
+}
+
+.readMoreButton:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+.readMoreButton::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.5rem;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #1e40af transparent transparent transparent;
+  transition: transform 0.3s ease;
+}
+
+.textContent:not(.expanded) .readMoreButton::after {
+  transform: rotate(-90deg);
+}
+
+.textContent.expanded .readMoreButton::after {
+  transform: rotate(0deg);
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .fullWidthContent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ledParkingIntro {
+    padding: 3.5rem 0;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .textContent p {
+    font-size: 1rem;
+  }
+  
+  .fullWidthContent {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ledParkingIntro {
+    padding: 2.5rem 0;
+  }
+  
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+  }
+}

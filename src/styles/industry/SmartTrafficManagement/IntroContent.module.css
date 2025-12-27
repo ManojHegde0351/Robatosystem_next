@@ -1,0 +1,134 @@
+.section {
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contentSection {
+  margin-bottom: 4rem;
+}
+
+.textContent {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #0a2540;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #357abd);
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+.sectionText {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.subsectionTitle {
+  font-size: 1.5rem;
+  color: #1a365d;
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+
+.imageSection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .mainImage {
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .textContent {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .subsectionTitle {
+    font-size: 1.3rem;
+  }
+  
+  .sectionText {
+    font-size: 1rem;
+  }
+  
+  .imageSection {
+    margin: 3rem -1.5rem;
+  }
+  
+  .imageWrapper {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .subsectionTitle {
+    font-size: 1.2rem;
+  }
+  
+  .textContent {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,187 @@
+.roadsideVMS {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.section.reverse {
+  direction: rtl;
+}
+
+.section.reverse .content {
+  direction: ltr;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #3b82f6;
+  border-radius: 2px;
+}
+
+.textContent {
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.textContent p {
+  margin-bottom: 1.5rem;
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Static Signage Styles */
+
+.staticSignage {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start; /* Changed from center to flex-start */
+  margin: 4rem 0;
+}
+.subsectionTitle {
+  font-size: 1.5rem;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.signageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.signageItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 6px;
+
+}
+
+.checkIcon {
+  color: #10b981;
+  font-weight: bold;
+}
+.staticSignageContent {
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+}
+
+
+.staticSignageImage {
+  flex: 0 0 45%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
+  margin-top: 2.5rem; /* Align with the content */
+}
+
+/* Update for mobile responsiveness */
+@media (max-width: 1024px) {
+  .staticSignageContent {
+    flex-direction: column;
+  }
+  
+  .staticSignageImage {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section.reverse {
+    direction: ltr;
+  }
+
+  .imageContainer {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .roadsideVMS {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .staticSignage {
+    padding: 1.5rem;
+  }
+
+  .signageGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .textContent {
+    font-size: 0.95rem;
+  }
+
+  .signageGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  width: 100%;
+  background: linear-gradient(rgba(11, 26, 51, 0.7)),
+    url('/images/products/RFID-Background.webp') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 1200px;
+  padding: 0 2rem;
+  z-index: 2;
+}
+
+.textContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+.heroContent p {
+  font-size: 1.25rem;
+  margin: 0 auto 2rem;
+  max-width: 700px;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  
+  .heroContent p {
+    font-size: 1rem;
+  }
+}

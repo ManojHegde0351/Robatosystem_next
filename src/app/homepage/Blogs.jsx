@@ -1,38 +1,146 @@
+'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
-import '@/styles/home/blogs.css';
+import { blogService } from '@/services/blogService';
 
 const Blogs = ({ isHomePage = false }) => {
-  const blogs = [
-    {
-      id: 1,
-      title: 'The Future of Industrial Automation: Trends to Watch in 2025',
-      excerpt: 'Explore the latest trends shaping the future of industrial automation and how businesses can stay ahead of the curve.',
-      date: 'JUNE 15, 2025',
-      image: '/images/blogs/industry-automation.jpg',
-      link: '/blog/industrial-automation-trends-2025'
-    },
-    {
-      id: 2,
-      title: 'Enhancing Workplace Safety with Smart Security Solutions',
-      excerpt: 'Discover how smart security solutions are revolutionizing workplace safety in industrial environments.',
-      date: 'JUNE 10, 2025',
-      image: '/images/blogs/smart-parking.jpg',
-      link: '/blog/smart-security-solutions'
-    },
-    {
-      id: 3,
-      title: 'The Role of AI in Modern Manufacturing',
-      excerpt: 'Learn how artificial intelligence is transforming manufacturing processes and driving efficiency.',
-      date: 'JUNE 5, 2025',
-      image: '/images/blogs/access-controler.jpg',
-      link: '/blog/access-control'
-    }
-  ];
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
+  // Only load CSS and fetch data after component mounts
+  useEffect(() => {
+    setMounted(true);
+    import('@/styles/home/blogs.css');
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const response = await blogService.getFeaturedBlogs(3);
+        
+        if (response.success && response.data.length > 0) {
+          setBlogs(response.data);
+        } else {
+          // No blogs available or error occurred
+          setBlogs([]);
+        }
+      } catch (err) {
+        console.error('Error fetching blogs:', err);
+        setError('Failed to load blogs');
+        setBlogs([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, [mounted]);
+
+  // Don't render anything until mounted
+  if (!mounted) {
+    return (
+      <section className="blogs-section">
+        <div className="blogs-container">
+          <div className={isHomePage ? "home-section-header" : "product-section-header"}>
+            <h2>Latest Blogs</h2>
+            <p>Insights & Industry Updates</p>
+          </div>
+          
+          <div className="blogs-grid">
+            {[1, 2, 3].map((index) => (
+              <div key={index} className="blog-card loading-skeleton">
+                <div className="blog-image-container">
+                  <div className="skeleton-image"></div>
+                </div>
+                <div className="blog-content">
+                  <div className="blog-text-content">
+                    <div className="skeleton-date"></div>
+                    <div className="skeleton-title"></div>
+                    <div className="skeleton-excerpt"></div>
+                  </div>
+                  <div className="read-more-wrapper">
+                    <div className="skeleton-button"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Loading skeleton
+  if (loading) {
+    return (
+      <section className="blogs-section">
+        <div className="blogs-container">
+          <div className={isHomePage ? "home-section-header" : "product-section-header"}>
+            <h2>Latest Blogs</h2>
+            <p>Insights & Industry Updates</p>
+          </div>
+          
+          <div className="blogs-grid">
+            {[1, 2, 3].map((index) => (
+              <div key={index} className="blog-card loading-skeleton">
+                <div className="blog-image-container">
+                  <div className="skeleton-image"></div>
+                </div>
+                <div className="blog-content">
+                  <div className="blog-text-content">
+                    <div className="skeleton-date"></div>
+                    <div className="skeleton-title"></div>
+                    <div className="skeleton-excerpt"></div>
+                  </div>
+                  <div className="read-more-wrapper">
+                    <div className="skeleton-button"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // No blogs available state
+  if (blogs.length === 0) {
+    return (
+      <section className="blogs-section">
+        <div className="blogs-container">
+          <div className={isHomePage ? "home-section-header" : "product-section-header"}>
+            <h2>Latest Blogs</h2>
+            <p>Insights & Industry Updates</p>
+          </div>
+          
+          <div className="no-blogs-container">
+            <div className="no-blogs-icon">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div className="no-blogs-content">
+              <h3>No Blogs Available</h3>
+              <p>We're working on bringing you the latest insights and industry updates. Check back soon!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Display blogs
   return (
     <section className="blogs-section">
       <div className="blogs-container">

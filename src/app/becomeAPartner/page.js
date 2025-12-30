@@ -17,7 +17,7 @@ const BecomeAPartner = () => {
     <div className={styles.partnerPage}>
       <PartnerHero />
       
-      <AnimateOnScroll delay={0} duration={0.6}>
+   
         <div className={styles.contentSection}>
           <div className={styles.container}>
             <div className={styles.grid}>
@@ -38,7 +38,7 @@ const BecomeAPartner = () => {
             </div>
           </div>
         </div>
-      </AnimateOnScroll>
+
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { Montserrat } from 'next/font/google';
 import { Suspense } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingIcons from "@/components/FloatingIcons";
 import RouteScrollGuard from "@/hooks/RouteScrollGuard";
 import "./globals.css";
 
@@ -11,11 +12,11 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   weight: ['400', '700'],
   fallback: ['Arial', 'sans-serif'],
-
-  preload: true,
+  preload: false,
 });
 
 export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: {
     default: 'Robato System',
     template: '%s | Robato System'
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
               </RouteScrollGuard>
             </main>
           <Footer />
+          <FloatingIcons />
         </Suspense>
       </body>
     </html>

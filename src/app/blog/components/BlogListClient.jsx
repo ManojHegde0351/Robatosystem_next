@@ -4,55 +4,43 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
-import { blogService } from '@/services/blogService';
 import styles from '@/styles/Blog/BlogPosts.module.css';
 
-const BlogClient = () => {
-  const [showBackToTop, setShowBackToTop] = useState(false);
+const BlogListClient = ({ initialBlogs = [], initialError = null }) => {
+  const [blogs, setBlogs] = useState(initialBlogs);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(initialError);
   const [searchTerm, setSearchTerm] = useState('');
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // Add ref for intersection observer
-  const blogCardsRef = useRef([]);
+  // Derive filtered blogs from search term
+  const filteredBlogs = blogs.filter(blog => 
+    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (blog.category && blog.category.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (blog.author && blog.author.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
-  // Fetch blogs on component mount
+  const handleScroll = () => {
+    if (typeof window !== 'undefined') {
+      setShowBackToTop(window.scrollY > 300);
+    }
+  };
+
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        setLoading(true);
-        const response = await blogService.getAllBlogs();
-        
-        if (response.success) {
-          setBlogs(response.data);
-        } else {
-          setBlogs([]);
-          setError(response.message || 'Failed to fetch blogs');
-        }
-      } catch (err) {
-        console.error('Error fetching blogs:', err);
-        setError('Failed to fetch blogs');
-        setBlogs([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  // Handle scroll for back to top button
-  useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== 'undefined') {
-        setShowBackToTop(window.scrollY > 300);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Add ref for intersection observer
+  const blogCardsRef = useRef([]);
 
   // Set up intersection observer for scroll animations
   useEffect(() => {
@@ -78,26 +66,54 @@ const BlogClient = () => {
     };
   }, [blogs]);
 
-  // Derive filtered blogs from search term
-  const filteredBlogs = blogs.filter(blog => 
-    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (blog.category && blog.category.toLowerCase().includes(searchTerm.toLowerCase())) ||
-    (blog.author && blog.author.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   // Add ref to each blog card
   const addToRefs = (el) => {
     if (el && !blogCardsRef.current.includes(el)) {
       blogCardsRef.current.push(el);
     }
+  };
+
+  // Generate structured data for SEO
+  const blogStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://robatosystem.com/blog',
+    'headline': 'Latest Insights & Articles on Industrial Automation',
+    'description': 'Expert insights and latest trends in industrial automation, security solutions, and smart manufacturing.',
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Robato Systems',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': 'https://robatosystem.com/images/logo.png'
+      }
+    },
+    'blogPost': blogs.map(post => ({
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'description': post.excerpt,
+      'datePublished': new Date(post.date).toISOString(),
+      'author': {
+        '@type': 'Person',
+        'name': post.author || 'Robato Systems Team',
+        'jobTitle': post.authorRole || 'Expert'
+      },
+      'image': post.image ? `https://robatosystem.com${post.image}` : undefined,
+      'url': `https://robatosystem.com${post.link}`,
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Robato Systems',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://robatosystem.com/images/logo.png'
+        }
+      },
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': `https://robatosystem.com${post.link}`
+      },
+      'keywords': [post.category, 'Industrial Automation', 'Security Solutions']
+    }))
   };
 
   // Loading state
@@ -169,7 +185,7 @@ const BlogClient = () => {
   }
 
   // No blogs available state
-  if (blogs.length === 0) {
+  if (blogs.length === 0 && !loading) {
     return (
       <div className={styles.blogsSection}>
         <div className={styles.blogsContainer}>
@@ -204,48 +220,6 @@ const BlogClient = () => {
     );
   }
 
-  const blogStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    '@id': 'https://robatosystem.com/blog',
-    'headline': 'Latest Insights & Articles on Industrial Automation',
-    'description': 'Expert insights and latest trends in industrial automation, security solutions, and smart manufacturing.',
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'Robato Systems',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://robatosystem.com/images/logo.png'
-      }
-    },
-    'blogPost': blogs.map(post => ({
-      '@type': 'BlogPosting',
-      'headline': post.title,
-      'description': post.excerpt,
-      'datePublished': new Date(post.date).toISOString(),
-      'author': {
-        '@type': 'Person',
-        'name': post.author || 'Robato Systems Team',
-        'jobTitle': post.authorRole || 'Expert'
-      },
-      'image': post.image ? `https://robatosystem.com${post.image}` : undefined,
-      'url': `https://robatosystem.com${post.link}`,
-      'publisher': {
-        '@type': 'Organization',
-        'name': 'Robato Systems',
-        'logo': {
-          '@type': 'ImageObject',
-          'url': 'https://robatosystem.com/images/logo.png'
-        }
-      },
-      'mainEntityOfPage': {
-        '@type': 'WebPage',
-        '@id': `https://robatosystem.com${post.link}`
-      },
-      'keywords': [post.category, 'Industrial Automation', 'Security Solutions']
-    }))
-  };
-
   return (
     <div className={styles.blogsSection}>
       <Script
@@ -259,7 +233,7 @@ const BlogClient = () => {
           <p className={styles.sectionSubtitle}>Stay updated with the latest trends and news in industrial automation and security solutions.</p>
         </div>
         
-        {/* Search Box */}
+        {/* Search Box - Client Side Interaction */}
         <div className={styles.searchContainer}>
           <div className={styles.searchBox}>
             <svg
@@ -312,6 +286,7 @@ const BlogClient = () => {
           )}
         </div>
         
+        {/* Blog Grid - Client Side Animations */}
         <div className={styles.blogsGrid}>
           {filteredBlogs.map((blog, index) => (
             <article
@@ -364,6 +339,7 @@ const BlogClient = () => {
         </div>
       </div>
       
+      {/* Back to Top Button - Client Side Interaction */}
       <button
         className={`${styles.backToTop} ${showBackToTop ? styles.visible : ''}`}
         onClick={scrollToTop}
@@ -387,4 +363,4 @@ const BlogClient = () => {
   );
 };
 
-export default BlogClient;
+export default BlogListClient;

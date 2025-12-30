@@ -13,7 +13,7 @@ export default function AboutHero() {
           src="/images/About-background.webp"
           alt="About Robato System"
           fill
-          priority
+ 
           sizes="100vw"
           className={styles.heroBgImage}
         />

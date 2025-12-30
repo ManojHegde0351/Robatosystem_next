@@ -1,14 +1,17 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Hero from '@/app/homepage/Hero';
 import BuildYourDream from '@/app/homepage/BuildYourDream';
 import Services from '@/app/homepage/Services';
 import Testimonials from '@/app/homepage/Testimonials';
-import Blogs from '@/app/homepage/Blogs';
 import Partners from '@/app/homepage/Partners';
 import Offices from '@/app/homepage/Offices';
 import Sustainability from '@/app/homepage/Sustainability';
 import FAQ from '@/app/homepage/FAQ';
 import BackToTop from '@/components/BackToTop';
+import Blogs from './homepage/Blogs';
+
+
 
 export const metadata = {
   title: "Robato System - Home",

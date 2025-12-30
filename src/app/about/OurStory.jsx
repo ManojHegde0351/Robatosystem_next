@@ -38,7 +38,7 @@ export default function OurStory() {
             width={600}
             height={400}
             className={styles.ourStoryImage}
-            priority
+       
           />
         </div>
       </div>

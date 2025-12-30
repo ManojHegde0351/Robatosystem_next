@@ -13,7 +13,7 @@ const PartnerHero = () => {
           src="/images/background-becomeAPartner.webp"
           alt="Become a Partner with Robato Systems"
           fill
-          priority
+ 
           sizes="100vw"
         />
       </div>

@@ -1,57 +1,79 @@
-
-
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { blogService } from '@/services/blogService';
+import Script from 'next/script';
 import '@/styles/blog-details.css';
 
-export default function BlogDetails({ slug }) {
-  const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [relatedBlogs, setRelatedBlogs] = useState([]);
+const BlogDetailsClient = ({ slug, initialBlog = null, initialRelatedBlogs = [], initialError = null }) => {
+  const [blog, setBlog] = useState(initialBlog);
+  const [relatedBlogs, setRelatedBlogs] = useState(initialRelatedBlogs);
+  const [error, setError] = useState(initialError);
+  const [loading, setLoading] = useState(!initialBlog && !initialError);
 
+  // Add ref for intersection observer
+  const blogCardsRef = useRef([]);
+
+  // Set up intersection observer for scroll animations
   useEffect(() => {
-    const fetchBlogData = async () => {
-      try {
-        setLoading(true);
-        
-        // Fetch the specific blog by slug (you may need to modify the service to support slug lookup)
-        const allBlogsResponse = await blogService.getAllBlogs();
-        
-        if (allBlogsResponse.success) {
-          // Find the blog by slug
-          const foundBlog = allBlogsResponse.data.find(b => b.slug === slug || b.link === `/blog/${slug}`);
-          
-          if (foundBlog) {
-            setBlog(foundBlog);
-            
-            // Set related blogs (exclude current blog)
-            const related = allBlogsResponse.data
-              .filter(b => b.id !== foundBlog.id)
-              .slice(0, 3);
-            setRelatedBlogs(related);
-          } else {
-            setError('Blog not found');
-          }
-        } else {
-          setError('Failed to fetch blog');
+    const currentCards = blogCardsRef.current;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
-      } catch (err) {
-        console.error('Error fetching blog:', err);
-        setError('Failed to load blog');
-      } finally {
-        setLoading(false);
-      }
-    };
+      });
+    }, { threshold: 0.1 });
 
-    if (slug) {
-      fetchBlogData();
+    // Observe all blog cards
+    currentCards.forEach(card => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      currentCards.forEach(card => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, [relatedBlogs]);
+
+  // Add ref to each blog card
+  const addToRefs = (el) => {
+    if (el && !blogCardsRef.current.includes(el)) {
+      blogCardsRef.current.push(el);
     }
-  }, [slug]);
+  };
+
+  // Generate structured data for SEO
+  const blogStructuredData = blog ? {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    'headline': blog.title,
+    'description': blog.excerpt,
+    'datePublished': new Date(blog.date).toISOString(),
+    'author': {
+      '@type': 'Person',
+      'name': blog.author || 'Robato Systems Team',
+      'jobTitle': blog.authorRole || 'Expert'
+    },
+    'image': blog.image ? `https://robatosystem.com${blog.image}` : undefined,
+    'url': `https://robatosystem.com/blog/${slug}`,
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Robato Systems',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': 'https://robatosystem.com/images/logo.png'
+      }
+    },
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': `https://robatosystem.com/blog/${slug}`
+    },
+    'keywords': [blog.category, 'Industrial Automation', 'Security Solutions']
+  } : {};
 
   // Loading state
   if (loading) {
@@ -88,6 +110,11 @@ export default function BlogDetails({ slug }) {
 
   return (
     <div className="blog-detail-page">
+      <Script
+        id="blog-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogStructuredData) }}
+      />
       <div className="blog-detail-wrapper">
         {/* Blog Header */}
         <div className="blog-detail-header">
@@ -165,23 +192,44 @@ export default function BlogDetails({ slug }) {
           </div>
         </div>
 
-        {/* Social Share */}
+        {/* Social Share - Client Side Interaction */}
         <div className="blog-detail-share">
           <h3 className="blog-detail-share-section-title">Share this article</h3>
           <div className="blog-detail-share-buttons">
-            <button className="blog-detail-share-button linkedin">
+            <button 
+              className="blog-detail-share-button linkedin"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(blog.title)}`, '_blank');
+                }
+              }}
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
               LinkedIn
             </button>
-            <button className="blog-detail-share-button twitter">
+            <button 
+              className="blog-detail-share-button twitter"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+                }
+              }}
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
               </svg>
               Twitter
             </button>
-            <button className="blog-detail-share-button facebook">
+            <button 
+              className="blog-detail-share-button facebook"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+                }
+              }}
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
               </svg>
@@ -190,7 +238,7 @@ export default function BlogDetails({ slug }) {
           </div>
         </div>
 
-        {/* Related Blogs */}
+        {/* Related Blogs - Client Side Animations */}
         {relatedBlogs.length > 0 && (
           <div className="blog-detail-related">
             <h3 className="blog-detail-related-section-title">Related Articles</h3>
@@ -200,6 +248,12 @@ export default function BlogDetails({ slug }) {
                   key={relatedBlog.id} 
                   href={`/blog/${relatedBlog.slug || relatedBlog.link?.replace('/blog/', '')}`} 
                   className="blog-detail-related-blog-card"
+                  ref={addToRefs}
+                  style={{
+                    opacity: 0,
+                    transform: 'translateY(20px)',
+                    transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
+                  }}
                 >
                   <h4 className="blog-detail-related-blog-title">{relatedBlog.title}</h4>
                   <p className="blog-detail-related-blog-excerpt">{relatedBlog.excerpt}</p>
@@ -213,3 +267,5 @@ export default function BlogDetails({ slug }) {
     </div>
   );
 };
+
+export default BlogDetailsClient;
